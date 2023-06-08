@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover="stopAutoSlide" @mouseleave="startAutoSlide">
 
                 <div class="item" v-show="activeSlide === index" v-for="(element, index) in slides">
                     <img :src="element.image" alt="Spiderman" />

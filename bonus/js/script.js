@@ -32,8 +32,14 @@ createApp({
     data(){
         return{
             slides,
-            activeSlide : 0
+            activeSlide : 0,
+            autoSlide: '',
         }
+    },
+    created() {
+        this.autoSlide = setInterval(() => {
+            this.goNext()
+        }, 3000);
     },
     methods: {
         goNext(){
@@ -48,10 +54,17 @@ createApp({
             if(this.activeSlide < 0){
                 this.activeSlide = this.slides.length - 1
             }
-            console.log(this.activeSlide);
         },
         changeSlide(index){
             this.activeSlide = index
+        },
+        startAutoSlide(){
+            this.autoSlide = setInterval(() => {
+                this.goNext()
+            }, 3000);
+        },
+        stopAutoSlide(){
+            clearInterval(this.autoSlide)
         }
     },
 }).mount('#app')
