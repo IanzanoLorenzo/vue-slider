@@ -37,9 +37,7 @@ createApp({
         }
     },
     created() {
-        this.autoSlide = setInterval(() => {
-            this.goNext()
-        }, 3000);
+        this.startAutoSlide()
     },
     methods: {
         goNext(){
